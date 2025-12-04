@@ -5,12 +5,19 @@ function isSameType(value1, value2) {
   if (!Number.isNaN(num1)) value1 = num1;
   if (!Number.isNaN(num2)) value2 = num2;
 
-  // Check NaN case
+	
   if (Number.isNaN(value1) && Number.isNaN(value2)) {
     return true;
   }
+	 
+  const v1IsNaN = Number.isNaN(value1);
+  const v2IsNaN = Number.isNaN(value2);
 
-  // Compare types
+  if (v1IsNaN || v2IsNaN) {
+    return v1IsNaN && v2IsNaN; 
+  }
+
+
   return typeof value1 === typeof value2;
 }
 
